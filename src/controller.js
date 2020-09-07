@@ -9,6 +9,19 @@ const Controller = (() => {
     View.updateProjectSelectList(AppLocalStorage.parseData('projects'), 'projects');
   };
 
+  const addToDoFromShortFrom = (index) => {
+    const title = document.getElementById(`title-${index}`).value;
+    const selectedProject = document.getElementById(`hidden-project-${index}`).value;
+
+    const todo = ToDo(title);
+    const projectIndex = AppLocalStorage.getProjectByTitle(selectedProject);
+    AppLocalStorage.updateProjectTodoList(projectIndex, todo);
+  };
+
+  const showToDoShortForm = (index) => {
+    View.showToDoShortForm(index);
+  };
+
   const addToDo = () => {
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
@@ -17,7 +30,7 @@ const Controller = (() => {
     const selectedPriority = priority.options[priority.selectedIndex].text;
     const project = document.getElementById('projects');
     const selectedProject = project.options[project.selectedIndex].text;
-    const todo = ToDo(title, description, dueDate, selectedPriority);
+    const todo = ToDo(title, dueDate, description, selectedPriority);
     const projectIndex = AppLocalStorage.getProjectByTitle(selectedProject);
     AppLocalStorage.updateProjectTodoList(projectIndex, todo);
     View.deleteProjects();
@@ -34,12 +47,16 @@ const Controller = (() => {
     const selectedProject = project.options[project.selectedIndex].text;
     const projectIndex = AppLocalStorage.getProjectByTitle(selectedProject);
     const date = document.getElementById(`${modalId}-modal-date`).value;
-    const todo = ToDo(title, description, date, selectedPriority);
+    const todo = ToDo(title, date, description, selectedPriority);
 
     AppLocalStorage.removeToDo(projectId, toDoId);
     AppLocalStorage.updateProjectTodoList(projectIndex, todo);
     View.deleteProjects();
     start();
+  };
+
+  const toggleProjectForm = () => {
+    View.showProjectForm();
   };
 
   const addProject = () => {
@@ -49,6 +66,7 @@ const Controller = (() => {
     View.deleteProjects();
     start();
     View.clearForm('project-form');
+    toggleProjectForm();
   };
 
   const toggleSaveBtn = (projectId) => {
@@ -92,6 +110,9 @@ const Controller = (() => {
     onToDoClick,
     addSelectedProjectsToModal,
     updateToDo,
+    showToDoShortForm,
+    addToDoFromShortFrom,
+    toggleProjectForm,
   };
 })();
 
