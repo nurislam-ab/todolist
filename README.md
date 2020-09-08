@@ -18,7 +18,7 @@ Building a To Do List App using JavaScript and Webpack. Learning how to apply Ob
 
 ## Live Demo
 
-[Demo](https://rawcdn.githack.com/nurislam-ab/todolist/181f71128fec193593e4b64ae6ee377774338059/dist/index.html)
+[Demo](https://raw.githack.com/nurislam-ab/todolist/feature-todolist/dist/index.html)
 
 ## Getting Started
 
