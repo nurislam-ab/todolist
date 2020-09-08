@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <title>To do List</title>
+    <script src="https://unpkg.com/lodash@4.16.6"></script>
+    <script src="main.js" type="module"></script>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="logo">Todos</div>
+      <div class="add-project">
+        <button type="button" id="add-project-btn" class="add-todo-btn" onclick="showProjectForm()">Add project</button>
+        <button type="button" id="add-todo-btn" class="add-todo-btn" data-toggle="modal" data-target="#add-todo-modal-form" >Add todo</button>
+
+        <form id="project-form" class="d-none" method="post">
+          <input type="text" name="project-title" id="project-title" placeholder="Enter project title" required />
+          <button type="submit" onclick="validateProjectForm()" id="add-project" class="add-todo-btn">Save</button>
+        </form>
+
+        <div id="add-todo-modal-form" class="modal fade todo-form-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add todo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="todo-form" class="todo-form" method="post">
+                  <input type="text" name="title" id="title" placeholder="Title" required />
+                  
+                  <div class="todo-extra-info">
+                    <div class="todo-info-block">
+                      <label for="priorities">Priority</label>
+                      <select id="priorities" name="priorities" required>
+                        <option value="" disabled selected hidden>Choose a priority</option>
+                        <option value="low">Low</option>
+                        <option value="high">High</option>
+                      </select>
+                    </div>
+
+                    <div class="todo-info-block">
+                      <label for="due-date">Due date</label>
+                      <input type="date" name="due-date" id="due-date" required />
+                    </div>
+                    
+                    <div class="todo-info-block">
+                      <label for="projects">Project</label>
+                      <select id="projects" name="projects" required>
+                        <option value="" disabled selected hidden>Choose a project</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <label for="description">Description</label>
+                  <textarea name="description" id="description" placeholder="Add a more detailed description" required></textarea>
+                  <button type="submit" onclick="validateToDoForm()" data-dismiss="modal" class="add-todo-btn">Add todo</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="projects-container" id="projects-container">
+
+    </div>
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

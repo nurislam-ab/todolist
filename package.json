@@ -1,0 +1,51 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "A To Do List app to learn how to implement OOP design using JS and Webpacker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santiagorodriguezbermudez/todolist.git"
+  },
+  "author": "Nurislam and Santiago",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santiagorodriguezbermudez/todolist/issues"
+  },
+  "homepage": "https://github.com/santiagorodriguezbermudez/todolist#readme",
+  "devDependencies": {
+    "css-loader": "^3.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "file-loader": "^6.1.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.8.0",
+    "stylelint-scss": "^3.17.2",
+    "bootstrap": "^4.5.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "date-fns": "^2.16.1",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "file-loader": "^6.1.0",
+    "style-loader": "^1.2.1",
+    "css-loader": "^3.6.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^9.0.2",
+    "bootstrap": "^4.5.2"
+  }
+}

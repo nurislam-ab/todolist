@@ -2,7 +2,11 @@
 
 Building a To Do List App using JavaScript and Webpack. Learning how to apply Object Oriented Programming bes practices. 
 
-![screenshot]()
+## Screenshots
+* [Page with hover effects, open input field](dist/assets/images/screenshot_1.png)
+* [Modal view of the todos](app/assets/images/screenshot_2.png)
+* [Add project](app/assets/images/screenshot_3.png)
+* [Scroll between projects](app/assets/images/screenshot_4.png)
 
 ## Built With
 
@@ -10,10 +14,11 @@ Building a To Do List App using JavaScript and Webpack. Learning how to apply Ob
 -   CSS3
 -   Javascript
 -   Webpack
+-   Bootstrap
 
 ## Live Demo
 
-[Work in Progress]()
+[Demo](https://raw.githack.com/nurislam-ab/todolist/feature-todolist/dist/index.html)
 
 ## Getting Started
 
@@ -36,6 +41,19 @@ Building a To Do List App using JavaScript and Webpack. Learning how to apply Ob
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Acknowledgments
+
+* Microverse
+* Coding partner
+* Design idea inspired by the [Trello](https://trello.com/)
+
+
+## Show your support
+
+Give a ⭐️ if you like this project!
 
 ## 📝 License
 
