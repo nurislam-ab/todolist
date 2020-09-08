@@ -102,22 +102,70 @@ svg {
 
 .todo-form-modal .modal-dialog {
   max-width: 768px;
+
+  .modal-content {
+    background-color: #e6e6e6;
+  }
 }
 
 .todo-form {
   display: flex;
   flex-direction: column;
 
+  #title,
+  h2 {
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    line-height: 2rem;
+    padding: 5px 10px;
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    resize: none;
+    overflow-wrap: break-word;
+  }
+
+  h2:focus,
+  #title:focus,
+  textarea:focus {
+    outline: rgb(84, 102, 244) auto 1px;
+    background-color: #fff;
+  }
+
+  .add-todo-btn {
+    width: fit-content;
+    align-self: flex-end;
+    padding: 10px 20px !important;
+  }
+
   .todo-extra-info {
     display: flex;
     flex-direction: row;
     justify-content: start;
     margin: 20px 0;
+    margin-bottom: 30px;
 
     label {
       font-family: 'Nunito', Arial, Helvetica, sans-serif;
       font-weight: 600;
       color: #555;
+      font-size: 16px;
     }
 
     .todo-info-block {
@@ -133,7 +181,8 @@ svg {
 
       input,
       select {
-        border: 1px solid #888;
+        // border: 1px solid #888;
+        border: none;
         border-radius: 5px;
         line-height: 1.4rem;
         padding: 5px 10px;
@@ -367,30 +416,28 @@ form#project-form {
 
 @media screen and (min-width: 320px) {
   .project-wrapper {
+    width: 45%;
     flex: 1 0 45%;
   }
 }
 
 @media screen and (min-width: 768px) {
   .project-wrapper {
-    flex: 1 0 30%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .project-wrapper {
+    width: 30%;
     flex: 1 0 30%;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .project-wrapper {
+    width: 25%;
     flex: 1 0 25%;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .project-wrapper {
+    width: 20%;
     flex: 1 0 20%;
   }
 }
