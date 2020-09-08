@@ -300,6 +300,7 @@ const View = (() => {
       switch (fieldType) {
         case 'text':
         case 'date':
+        case 'textarea':
           formElements[i].value = '';
           break;
         case 'select-one':
