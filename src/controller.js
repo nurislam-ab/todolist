@@ -9,6 +9,13 @@ const Controller = (() => {
     View.updateProjectSelectList(AppLocalStorage.parseData('projects'), 'projects');
   };
 
+  const addDefaultProject = () => {
+    const project = Project('Default', []);
+    AppLocalStorage.populateWithDefaultProject('projects', project);
+    View.deleteProjects();
+    start();
+  };
+
   const addToDoFromShortFrom = (index) => {
     const title = document.getElementById(`title-${index}`).value;
     const selectedProject = document.getElementById(`hidden-project-${index}`).value;
@@ -165,6 +172,7 @@ const Controller = (() => {
     toggleProjectForm,
     validateProjectForm,
     validateToDoForm,
+    addDefaultProject,
   };
 })();
 

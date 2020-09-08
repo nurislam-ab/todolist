@@ -1,13 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import Controller from './controller';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/reset.scss';
-import './css/styles.scss';
-
+import './assets/css/reset.scss';
+import './assets/css/styles.scss';
 
 window.onload = () => {
   Controller.start();
+  Controller.addDefaultProject();
 };
 
 window.validateToDoForm = () => {

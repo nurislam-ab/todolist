@@ -1,9 +1,19 @@
 const AppLocalStorage = (() => {
+  const populateWithDefaultProject = (keyName, project) => {
+    let projects;
+    if (localStorage.getItem(`${keyName}`) === null) {
+      projects = [];
+    }
+
+    projects.push(project);
+
+    localStorage.setItem(`${keyName}`, JSON.stringify(projects));
+  };
+
   const storeLocal = (keyName, item) => {
     let projects;
     if (localStorage.getItem(`${keyName}`) === null) {
       projects = [];
-      projects.push('Default project');
     } else {
       projects = JSON.parse(localStorage.getItem(`${keyName}`));
     }
@@ -12,6 +22,7 @@ const AppLocalStorage = (() => {
 
     localStorage.setItem(`${keyName}`, JSON.stringify(projects));
   };
+
   const parseData = (keyName) => {
     let data = JSON.parse(localStorage.getItem(`${keyName}`));
     if (data === null) {
@@ -58,16 +69,6 @@ const AppLocalStorage = (() => {
     localStorage.setItem('projects', JSON.stringify(projects));
   };
 
-  const getProjectTitle = (index, title) => {
-    const projects = parseData('projects');
-    const projectNew = projects[index];
-    if (projectNew.title === title) {
-      return true;
-    }
-
-    return false;
-  };
-
   return {
     storeLocal,
     parseData,
@@ -76,7 +77,7 @@ const AppLocalStorage = (() => {
     removeProject,
     removeToDo,
     updateProject,
-    getProjectTitle,
+    populateWithDefaultProject,
   };
 })();
 
