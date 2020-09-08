@@ -90,6 +90,7 @@ const Controller = (() => {
     AppLocalStorage.updateProjectTodoList(projectIndex, todo);
     View.deleteProjects();
     start();
+    return true;
   };
 
   const toggleProjectForm = () => {
