@@ -97,39 +97,54 @@ const View = (() => {
   const createModal = (projectId, toDo, projectTitle, toDoId) => {
     const id = `project-${projectId}-toDo-${toDoId}`;
     const modal = document.createElement('div');
-    modal.setAttribute('class', 'modal fade');
+    modal.setAttribute('class', 'modal fade todo-form-modal');
     modal.id = id;
     modal.setAttribute('tabindex', '-1');
     modal.setAttribute('role', 'dialog');
     modal.setAttribute('aria-labelledby', 'exampleModalLabel');
     modal.setAttribute('aria-hidden', 'true');
     modal.innerHTML = `<div class='modal-dialog' role='document'>
-          <div class='modal-content'>
-          <div class='modal-header'>
-            <h5 class='modal-title' id='exampleModalLabel'>Title: <span contentEditable=true id='${id}-modal-title'>${toDo.title}</span></h5>
-            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
-          </div>
-          <div class='modal-body'>
-            <label for="projects">Project</label>
-            <select id='${id}-modal-project'>${projectTitle}
-            </select>
-            <p>Description: <span contentEditable=true id='${id}-modal-description'>${toDo.description}</span></p>
-            <input type="date" name="due-date" id='${id}-modal-date' value="${toDo.dueDate}">
-            <label for="priorities">Priority</label>
-            <select id='${id}-modal-priority' name="priorities">
-              <option value="" disabled selected hidden>${toDo.priority}</option>
-              <option value="Low">Low</option>
-              <option value="High">High</option>
-            </select>
-          </div>
-          <div class='modal-footer'>
-            <button type='button' class='btn btn-secondary' data-dismiss='modal' onclick="updateToDo('${id}', '${projectId}', '${toDoId}')" >Save</button>
-          </div>
-        </div>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title'>View todo</h5>
+        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
       </div>
-    </div>`;
+      <div class='modal-body'>
+        <form id='todo-form' class='todo-form' method='post'>
+          <h2 id='${id}-modal-title' contentEditable=true>${toDo.title}</h5>
+          
+            <div class='todo-extra-info'>
+              <div class='todo-info-block'>
+                <label for='priorities'>Priority</label>
+                <select id='${id}-modal-priority' name='priorities' required>
+                  <option value='' disabled selected hidden>${toDo.priority}</option>
+                  <option value='Low'>Low</option>
+                  <option value='High'>High</option>
+                </select>
+              </div>
+  
+              <div class='todo-info-block'>
+                <label for='due-date'>Due date</label>
+                <input type='date' name='due-date' id='${id}-modal-date' value='${toDo.dueDate}' required/>
+              </div>
+              
+              <div class='todo-info-block'>
+                <label for='projects'>Project</label>
+                <select id='${id}-modal-project' required>${projectTitle}</select>
+              </div>
+            </div>
+      
+            <label for='description'>Description</label>
+            <textarea name='description' id='${id}-modal-description' placeholder='Add a more detailed description' required>${toDo.description}</textarea>
+        </form>
+      </div>
+      <div class='modal-footer'>
+        <button type='submit' class='add-todo-btn' data-dismiss='modal' onclick="updateToDo('${id}', '${projectId}', '${toDoId}')">Save</button>
+      </div>
+    </div>
+  </div>`;
     return modal;
   };
 
@@ -236,7 +251,10 @@ const View = (() => {
     projectsArr.forEach((project, index) => {
       renderProjects(project, projectsListContainer, index);
       project.toDoList.forEach((toDo, toDoId) => {
-        addToDoToProject(index, toDo, toDoId, project.title);
+        addToDoToProject(index,
+          toDo,
+          toDoId,
+          project.title);
       });
       renderAddToDoBtn(project, index);
     });
